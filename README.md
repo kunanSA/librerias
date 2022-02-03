@@ -58,13 +58,9 @@ Metodo `POST`: _(Datos a modo de ejemplo)_
 | Ver por id en Modulo | GET | ` {{suitecrm.url}}/Api/V8/module/{moduleName}/{id} ` | `Api/V8/module/Accounts/11a71596-83e7-624d-c792-5ab9006dd493?fields[Accounts]=name,account_type` |
 
 
-
-
-
-
 #### 2.2 Api Referencias
 ### A tener en cuenta!
-Antes de relizar cualquier peticion, se debera enviar a de la siguiente formma:
+Antes de realizar cualquier peticion, se debera enviar de la siguiente forma:
 ```http
 'Content-type: application/vnd.api+json',
 'Accept: application/vnd.api+json',
