@@ -13,6 +13,7 @@ Listado de lenguajes utilizados para la integracion de API v8:
 1. [Autenticacion](#1-autenticacion)
 2. [Consumo](#2-consumo)
 * [Endpoints](#21-endpoints)
+* [Api Referencias](#22-api-referencias)
 
 #### 1. Autenticacion
 La API de SuiteCRM requiere que un cliente tenga una sesión activa para consumir la API. Las sesiones se adquieren mediante la autenticación con el Servidor OAuth 2, utilizando uno de los tipos de subvención disponibles. SuiteCRM Api permite dos tipos de subvenciones:
