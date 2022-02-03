@@ -60,7 +60,7 @@ Metodo `POST`: _(Datos a modo de ejemplo)_
 
 #### 2.2 Api Referencias
 ### A tener en cuenta!
-Antes de realizar cualquier peticion, se debera enviar de la siguiente forma:
+Antes de realizar cualquier peticion, se debera generar el `access_token` correspondiente y enviarlo de la siguiente forma:
 ```http
 'Content-type: application/vnd.api+json',
 'Accept: application/vnd.api+json',
