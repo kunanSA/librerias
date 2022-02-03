@@ -61,7 +61,7 @@ Metodo `POST`: _(Datos a modo de ejemplo)_
 
 
 
-## API Referencias
+#### 2.2 Api Referencias
 ### A tener en cuenta!
 Antes de relizar cualquier peticion, se debera enviar a de la siguiente formma:
 ```http
@@ -291,18 +291,64 @@ Al enviar el cuerpo de informacion, se recibira como respuesta un formato simila
 }
 ```
 
+#### Editar un registro
 ```http
-  GET /api/items/${id}
+  PUT/PATCH /api/items/${id}
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
+| Parametros | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `Bearer` | `string` | **Requerido**. Tu clave de sesion |
 
-#### add(num1, num2)
+El cuerpo de actualizacion es similar al de creacion, con la diferencia que se debe incluir el `id` del registro a modificar. El resto de los atributos a modificar, queda a criterio del programador:
+```json
+{
+  "data": {
+    "type": "Accounts",
+    "id": "6222e8e6-bf0a-2495-3c37-61fbf50c49a6",
+    "attributes": {
+      "name": "Nuevo nombre"
+    }
+  }
+}
+```
+#### > _Respuesta_
+La solicitud enviada responde con los datos alterados; por ej la fecha de modificacion `date_modified`, usuario que edito (en este caso el token del sistema):
+```json
+{
+    "data": {
+        "type": "Account",
+        "id": "6222e8e6-bf0a-2495-3c37-61fbf50c49a6",
+        "attributes": {
+            "name": "Nuevo nombre",
+            "date_entered": "2022-02-03T15:32:00+00:00",
+            "date_modified": "2022-02-03T15:41:00+00:00",
+            "modified_user_id": "2c530fe4-f235-9ad2-9398-611ff623aa1b",
+            "modified_by_name": "Demo",
+            "created_by": "2c530fe4-f235-9ad2-9398-611ff623aa1b",
+            "created_by_name": "Demo",
+            ............
+}
+```
 
-Takes two numbers and returns the sum.
+#### Eliminar un registro
+Para eliminar un registro simplemente se debe enviar el `ID` por parametro de url
+```http
+{{suitecrm.url}}/V8/module/Accounts/{ID}
+```
+| Parametros | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `Bearer` | `string` | **Requerido**. Tu clave de sesion |
 
+#### > _Respuesta_
+```json
+{
+    "meta": {
+        "message": "Record with id 6222e8e6-bf0a-2495-3c37-61fbf50c49a6 is deleted"
+    },
+    "data": []
+}
+```
 ## Autor
 
 - [@gassalta](https://github.com/gassalta)
@@ -314,4 +360,3 @@ Links oficiales de documentacion que se utilizo de referencia para elaborar la a
 [API V8 Documentacion](https://docs.suitecrm.com/developer/api/developer-setup-guide/)
 
 [API V8 Custom](https://docs.suitecrm.com/developer/api/developer-setup-guide/customization/)
-
